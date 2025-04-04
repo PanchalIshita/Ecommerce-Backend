@@ -32,9 +32,10 @@ async function main(){
     console.log('database connected')
 }
 
-server.get('/',(req, res)=>{
-    res.json({status:'success'})
+server.get('/', (req, res) => {
+    res.json({ message: 'Welcome to the E-commerce API' });
 })
+
 server.listen(8080, ()=>{
     console.log('server started')
 })
