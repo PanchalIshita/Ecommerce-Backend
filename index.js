@@ -14,8 +14,12 @@ const ordersRouter = require('./routes/Order');
 //middlewares
 
 server.use(cors({
-    exposedHeaders:['X-Total-Count']
-}))
+    origin: '*', // Allow any origin
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allow common methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allow common headers
+    exposedHeaders: ['X-Total-Count']
+}));
+
 server.use(express.json()); // to parse req.body
 server.use('/products', productsRouter.router);
 server.use('/categories', categoriesRouter.router)
